@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block body %}
+    <h3>Student ID:{{ student.student_id }}</h3>
+    <h4>Student first name: {{ student.first_name }} </h4>
+    <h4>Student middle name: {{ student.middle_name}}</h4>
+    <h4>Student last name: {{ student.last_name}}</h4>
+    <h4>Student's father's first name: {{ student.father_first_name }} </h4>
+    <h4>Student's father's middle name: {{ student.father_middle_name}}</h4>
+    <h4>Student's father's last name: {{ student.father_last_name}}</h4>
+    <br>
+    <h4>Address</h4>
+    <h5>House number: {{ student.house_number }}</h5>
+    <h5>Street Name: {{ student.st_name }}</h5>
+    <h5>Area Name: {{ student.area_name }}</h5>
+    <h5>City Name: {{ student.city_name }}</h5>
+    <h5>Country Name: {{ student.country_name }}</h5>
+    <br>
+    <h4>Contact information</h4>
+    <h5>Resi. number: {{ student.res_number }}</h5>
+    <h5>Phone number: {{ student.phone_number }}</h5>
+    <br>
+    <h4>General information</h4>
+    <h5>Date of birth: {{ student.date_of_birth }}</h5>
+    <h5>Gender: {{ student.gender }}</h5>
+    <h5>School name: {{ student.school_name}}</h5>
+    <h5>Education: {{ student.education }}</h5>
+    <h5>Email id: {{ student.student_email }}</h5>
+
+
+<table class="table table-dark ">
+      <thead>
+        <tr>
+          <th scope="col">Addmission id</th>
+          <th scope="col">Course Name</th>
+          <th scope="col" >start timming</th>
+          <th scope="col" >End timming</th>
+          <th scope="col">Addmission Date</th>
+          </tr>
+      </thead>
+       <tbody>
+{% for addmission in addmission %}
+        <tr>
+            <th scope="row">{{ addmission.addmission_id }}</a></th>
+            <td>{{ addmission.course.course_name }}</td>
+            <td>{{ addmission.start_timming }} </td>
+            <td>{{ addmission.end_timming }}   </td>
+            <td>{{ addmission.addmission_date }}</td>
+
+        </tr>
+{% endfor %}
+
+       </tbody>
+</table>
+
+
+
+{% endblock %}

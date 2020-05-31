@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+{% block body%}
+<div class="container-section">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">
+                    Join Today
+                </legend>
+                <div class="form-group">
+
+                    {{form.addmission_date.label(class="form-control-label")}}
+                    &nbsp; &nbsp; &nbsp;
+                    {% if  form.addmission_date.errors %}
+                        {{form.addmission_date(class="datepicker")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.addmission_date.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.addmission_date(class="datepicker")}}
+                    {% endif %}
+
+                </div>
+                <div class="form-group">
+                    {{form.start_timming.label(class="form-control-label")}}
+                    {% if  form.start_timming.errors %}
+                        {{form.start_timming(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.start_timming.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.start_timming(class="form-control form-control-lg")}}
+                    {% endif %}
+
+
+                </div>
+                <div class="form-group">
+                    {{form.end_timming.label(class="form-control-label")}}
+                    {% if  form.end_timming.errors %}
+                        {{form.end_timming(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.end_timming.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.end_timming(class="form-control form-control-lg")}}
+                    {% endif %}
+
+
+                </div>
+                <div class="form-group">
+                    {{form.days.label(class="form-control-label")}}
+                    {% if  form.days.errors %}
+                        {{form.days(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.days.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.days(class="form-control form-control-lg")}}
+                    {% endif %}
+
+                </div>
+                <div class="form-group">
+                    {{form.fees.label(class="form-control-label")}}
+                    {% if  form.fees.errors %}
+                        {{form.fees(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.fees.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.fees(class="form-control form-control-lg")}}
+                    {% endif %}
+
+                </div>       
+                <div class="form-group">
+                    {{form.student_name.label(class="form-control-label")}}
+                    {% if  form.student_name.errors %}
+                        {{form.student_name(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.student_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.student_name(class="form-control form-control-lg")}}
+                    {% endif %}
+                    <a href="{{url_for('student.new_addmission')}}">Click here for new entry</a>
+                    <br>
+                    <br>
+
+
+                </div>
+
+                 <div class="form-group">
+                    {{form.course_name.label(class="form-control-label")}}
+                    {% if  form.course_name.errors %}
+                        {{form.course_name(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.course_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.course_name(class="form-control form-control-lg")}}
+                    {% endif %}
+
+                </div>
+
+           </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info")}}
+            </div>
+
+
+        </form>
+
+
+
+    </div>
+
+
+
+{% endblock %}

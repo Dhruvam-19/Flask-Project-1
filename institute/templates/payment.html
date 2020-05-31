@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">
+                    Payment
+                </legend>
+
+
+
+                <div class="form-group">
+
+                    {{form.receipt_date.label(class="form-control-label")}}
+                    &nbsp; &nbsp; &nbsp;
+                    {% if  form.receipt_date.errors %}
+                        {{form.receipt_date(class="datepicker")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.receipt_date.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.receipt_date(class="datepicker")}}
+                    {% endif %}
+
+                </div>
+                <div class="form-group">
+                    {{form.amount.label(class="form-control-label")}}
+                    {% if  form.amount.errors %}
+                        {{form.amount(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.amount.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.amount(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{form.type.label(class="form-control-label")}}
+                    {% if  form.type.errors %}
+                        {{form.type(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.type.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.type(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+
+        <div class="form-group">
+                    {{form.cheque_number.label(class="form-control-label")}}
+                    {% if  form.cheque_number.errors %}
+                        {{form.type(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.cheque_number.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.cheque_number(class="form-control form-control-lg")}}
+                    {% endif %}
+        </div>
+
+        <div class="form-group">
+                    {{form.bank_name.label(class="form-control-label")}}
+                    {% if  form.bank_name.errors %}
+                        {{form.type(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.bank_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.bank_name(class="form-control form-control-lg")}}
+                    {% endif %}
+        </div>
+
+        <div class="form-group">
+                    {{form.branch_name.label(class="form-control-label")}}
+                    {% if  form.branch_name.errors %}
+                        {{form.branch_name(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.branch_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.branch_name(class="form-control form-control-lg")}}
+                    {% endif %}
+        </div>
+
+        <div class="form-group">
+
+                    {{form.cheque_date.label(class="form-control-label")}}
+                    &nbsp; &nbsp; &nbsp;
+                    {% if  form.cheque_date.errors %}
+                        {{form.cheque_date(class="datepicker")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.cheque_date.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.cheque_date(class="datepicker")}}
+                    {% endif %}
+
+                </div>
+
+
+
+
+            </fieldset>
+        <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info")}}
+        </div>
+        </form>
+</div>
+{% endblock %}
